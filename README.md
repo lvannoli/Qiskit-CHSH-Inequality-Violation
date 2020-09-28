@@ -1,6 +1,10 @@
 # Qiskit-CHSH-Inequality-Violation
 Qiskit code to simulate CHSH inequality violation
 
+Scheme of Aspect's Experiment
+
+![Alt text](images/Aspect_epr.png?raw=true "Aspect's Experiment")
+
 ```python
 %matplotlib inline
 # Importing standard Qiskit libraries and configuring account from qiskit import QuantumCircuit, execute, Aer, IBMQ, BasicAer, QuantumRegister, ClassicalRegister
@@ -9,7 +13,9 @@ from qiskit.compiler import transpile, assemble
 from qiskit.tools.jupyter import *
 from qiskit.tools.monitor import job_monitor
 from qiskit.visualization import *
-from qiskit.visualization import plot_state_city, plot_bloch_multivector from qiskit.visualization import plot_state_paulivec, plot_state_hinton from qiskit.quantum_info.analysis import average_data
+from qiskit.visualization import plot_state_city, plot_bloch_multivector 
+from qiskit.visualization import plot_state_paulivec, plot_state_hinton 
+from qiskit.quantum_info.analysis import average_data
 from qiskit_textbook.tools import array_to_latex
 # Loading your IBM Q account(s)
 provider = IBMQ.load_account()
@@ -103,7 +109,11 @@ sim_chsh_circuits[1].draw(output='mpl')
 sim_chsh_circuits[2].draw(output='mpl') 
 sim_chsh_circuits[3].draw(output='mpl')
 ```
-circuite images
+
+![Alt text](images/ZZRy_circ.png?raw=true "ZZ Circuit")
+![Alt text](images/ZXRy_circ.png?raw=true "ZX Circuit")
+![Alt text](images/XZRy_circ.png?raw=true "XZ Circuit")
+![Alt text](images/XXRy_circ.png?raw=true "XX Circuit")
 
 Getting the results of the simulation
 ```python
@@ -191,7 +201,11 @@ plot_histogram(data[data_index[1]], color='midnightblue', title="MeasureZX")
 plot_histogram(data[data_index[2]], color='midnightblue', title="MeasureXX") 
 plot_histogram(data[data_index[3]], color='midnightblue', title="MeasureXZ")
 ```
-histogram images
+![Alt text](images/fig_measureZZ.png?raw=true "ZZ Measure")
+![Alt text](images/fig_MeasureZX.png?raw=true "ZX Measure")
+![Alt text](images/fig_measureXZ.png?raw=true "XZ Measure")
+![Alt text](images/fig_MeasureXX.png?raw=true "XX Measure")
+
 Drawing the curves of CHSH value vs angles comparing simulation (blue dots) with the experiment (red line)
 ```python
 from matplotlib.ticker import FuncFormatter, MultipleLocator, FormatStrFormatter
@@ -217,4 +231,4 @@ ax.xaxis.set_major_formatter(FuncFormatter(lambda val,pos: '{:.0g}$\pi$'.format(
 ax.xaxis.set_major_locator(MultipleLocator(base=np.pi))
 plt.show()
 ```
-final plot image
+![Alt text](images/fig_CHSHvsAngle.png?raw=true "CHSH values vs Angle")
