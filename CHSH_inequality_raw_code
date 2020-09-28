@@ -1,4 +1,4 @@
-```
+
 %matplotlib inline
 # Importing standard Qiskit libraries and configuring account from qiskit import QuantumCircuit, execute, Aer, IBMQ, BasicAer, QuantumRegister, ClassicalRegister
 from qiskit.providers.ibmq import least_busy
@@ -14,7 +14,7 @@ from math import pi,sqrt
 import numpy as np
 from matplotlib import cm
 import matplotlib.pyplot as plt
-```
+
 
 import qiskit
 qiskit.__qiskit_version__
