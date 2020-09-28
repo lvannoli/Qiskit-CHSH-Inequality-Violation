@@ -18,7 +18,8 @@ import matplotlib.pyplot as plt
 
 import qiskit
 qiskit.__qiskit_version__
-# use simulator to learn more about entangled quantum states where possible sim_backend = BasicAer.get_backend('qasm_simulator')
+# use simulator to learn more about entangled quantum states where possible
+sim_backend = BasicAer.get_backend('qasm_simulator')
 sim_shots = 8192
 # use device to test entanglement
 device_shots = 1024
@@ -29,28 +30,28 @@ print(the backend is " + device_backend.name())
 # Creating registers
 q = QuantumRegister(2)
 c = ClassicalRegister(2)
-    # quantum circuit to make an entangled bell state
+# quantum circuit to make an entangled bell state
 bell = QuantumCircuit(q, c)
 bell.h(q[0])
 bell.cx(q[0], q[1])
-  # quantum circuit to measure q in the Z basis
+# quantum circuit to measure q in the Z basis
 measureZZ = QuantumCircuit(q, c) 
 measureZZ.measure(q[0], c[0]) 
 measureZZ.measure(q[1], c[1]) 
 bellZZ = bell+measureZZ
-  # quantum circuit to measure q in the X basis
+# quantum circuit to measure q in the X basis
 measureXX = QuantumCircuit(q, c) 
 measureXX.h(q[0]) measureXX.h(q[1]) 
 measureXX.measure(q[0], c[0]) 
 measureXX.measure(q[1], c[1]) 
 bellXX = bell+measureXX
-  # quantum circuit to measure ZX
+# quantum circuit to measure ZX
 measureZX = QuantumCircuit(q, c) 
 measureZX.h(q[0]) 
 measureZX.measure(q[0], c[0]) 
 measureZX.measure(q[1], c[1]) 
 bellZX = bell+measureZX
-  # quantum circuit to measure XZ
+# quantum circuit to measure XZ
 measureXZ = QuantumCircuit(q, c) 
 measureXZ.h(q[1]) 
 measureXZ.measure(q[0], c[0]) 
@@ -65,7 +66,8 @@ CHSH = lambda x : x[0]+x[1]+x[2]-x[3]
 measure = [measureZZ, measureZX, measureXX, measureXZ]
 
 # Theory
-sim_chsh_circuits = [] sim_x = []
+sim_chsh_circuits = [] 
+sim_x = []
 sim_steps = 30
 for step in range(sim_steps):
   theta = 2.0*np.pi*step/30 
