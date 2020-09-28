@@ -206,7 +206,7 @@ plot_histogram(data[data_index[3]], color='midnightblue', title="MeasureXZ")
 ![Alt text](images/fig_measureXZ.png?raw=true "XZ Measure")
 ![Alt text](images/fig_MeasureXX.png?raw=true "XX Measure")
 
-Drawing the curves of CHSH value vs angles comparing simulation (blue dots) with the experiment (red line)
+Drawing the curves of CHSH value vs angles comparing simulation (blue dots) with the experiment (red line). The horizontal blue lines underline the theorical maximum value for CHSH inequality if hidden variables existed (C = 2). The red line shows that the value of the CHSH exceeds this theorical maximum value.
 ```python
 from matplotlib.ticker import FuncFormatter, MultipleLocator, FormatStrFormatter
 import matplotlib.patches as mpatches
