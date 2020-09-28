@@ -6,7 +6,9 @@ from qiskit.compiler import transpile, assemble
 from qiskit.tools.jupyter import *
 from qiskit.tools.monitor import job_monitor
 from qiskit.visualization import *
-from qiskit.visualization import plot_state_city, plot_bloch_multivector from qiskit.visualization import plot_state_paulivec, plot_state_hinton from qiskit.quantum_info.analysis import average_data
+from qiskit.visualization import plot_state_city, plot_bloch_multivector 
+from qiskit.visualization import plot_state_paulivec, plot_state_hinton 
+from qiskit.quantum_info.analysis import average_data
 from qiskit_textbook.tools import array_to_latex
 # Loading your IBM Q account(s)
 provider = IBMQ.load_account()
@@ -136,9 +138,9 @@ for i,t in enumerate(angle):
     data_index.append(i)
     c[circ] += (data[i]["00"]+data[i]["11"]- data[i]["01"]-data[i]["10"])/device_shots 
     err_q[circ]+=data[i]["00"]/device_shots*(1-data[i]["00"]/device_shots)/device_shots 
-    err_q[circ]+=data[i]["01"]/device_shots* (1-data[i]["01"]/device_shots)/device_shots 
-    err_q[circ]+=data[i]["11"]/device_shots* (1-data[i]["11"]/device_shots)/device_shots 
-    err_q[circ]+=data[i]["10"]/device_shots* (1-data[i]["10"]/device_shots)/device_shots
+    err_q[circ]+=data[i]["01"]/device_shots*(1-data[i]["01"]/device_shots)/device_shots 
+    err_q[circ]+=data[i]["11"]/device_shots*(1-data[i]["11"]/device_shots)/device_shots 
+    err_q[circ]+=data[i]["10"]/device_shots*(1-data[i]["10"]/device_shots)/device_shots
 #print(err_q)
 C = c[0]+c[1]+c[2]-c[3] 
 errC = 0
